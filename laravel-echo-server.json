@@ -1,5 +1,5 @@
 {
-	"authHost": "http://localhost",
+	"authHost": "https://websockets.dev",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
@@ -14,8 +14,8 @@
 	"port": "6001",
 	"protocol": "https",
 	"socketio": {},
-	"sslCertPath": "~/.valet/Certificates/websockets.dev.crt",
-	"sslKeyPath": "~/.valet/Certificates/websockets.dev.key",
+	"sslCertPath": "/Users/owen/.valet/Certificates/websockets.dev.crt",
+	"sslKeyPath": "/Users/owen/.valet/Certificates/websockets.dev.key",
 	"sslCertChainPath": "",
 	"sslPassphrase": "",
 	"apiOriginAllow": {
