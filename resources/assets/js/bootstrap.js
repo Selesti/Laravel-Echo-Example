@@ -111,3 +111,21 @@ window.Echo
         jQuery('.alert-info').remove();
     }, 2000);
 });
+
+window.Echo
+.private('chat.1')
+.listenForWhisper('helloooo', ({ name }) => {
+    console.log(event);
+
+    jQuery('.card-body').prepend(`<div class="mt-2 alert alert-info">${name} has just said HI!</div>`);
+
+    setTimeout(() => {
+        jQuery('.alert-info').remove();
+    }, 2000);
+});
+
+jQuery(function () {
+    jQuery('#sayHi').click(() => {
+        window.Echo.private('chat.1').whisper('helloooo', window.active_user);
+    });
+});

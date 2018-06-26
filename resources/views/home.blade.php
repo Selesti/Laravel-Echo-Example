@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Dashboard <button id="sayHi" class="float-right btn btn-sm btn-warning">Say Hi!</button></div>
 
                 <div class="card-body">
                     @if (session('status'))

@@ -16,7 +16,5 @@ Broadcast::channel('everywhere', function ($user) {
 });
 
 Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
-    if ($user->canEnterRoom($roomId)) {
-        return $user;
-    }
+    return $user;
 });

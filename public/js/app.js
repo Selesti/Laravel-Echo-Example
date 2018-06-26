@@ -17355,6 +17355,24 @@ window.Echo.join('everywhere').here(function (users) {
     }, 2000);
 });
 
+window.Echo.private('chat.1').listenForWhisper('helloooo', function (_ref2) {
+    var name = _ref2.name;
+
+    console.log(event);
+
+    jQuery('.card-body').prepend('<div class="mt-2 alert alert-info">' + name + ' has just said HI!</div>');
+
+    setTimeout(function () {
+        jQuery('.alert-info').remove();
+    }, 2000);
+});
+
+jQuery(function () {
+    jQuery('#sayHi').click(function () {
+        window.Echo.private('chat.1').whisper('helloooo', window.active_user);
+    });
+});
+
 /***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {

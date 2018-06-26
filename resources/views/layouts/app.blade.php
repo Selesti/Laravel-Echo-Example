@@ -11,6 +11,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script>
+        window.active_user = @json(Auth::user());
+    </script>
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
