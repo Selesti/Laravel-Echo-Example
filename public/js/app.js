@@ -17307,7 +17307,7 @@ function updateUserList() {
         list.append('<li class="list-group-item">' + user.name + '</li>');
     });
 
-    jQuery('.card-body').html(list);
+    jQuery('.user-list').html(list);
 }
 
 window.Echo.join('everywhere').here(function (users) {
@@ -17326,7 +17326,7 @@ window.Echo.join('everywhere').here(function (users) {
     jQuery('.card-body').prepend('<div class="mt-2 alert alert-primary">' + user.name + ' has joined</div>');
 
     setTimeout(function () {
-        jQuery('.alert').remove();
+        jQuery('.alert-primary').remove();
     }, 2000);
 
     console.log(user);
@@ -17340,10 +17340,19 @@ window.Echo.join('everywhere').here(function (users) {
     jQuery('.card-body').prepend('<div class="mt-2 alert alert-danger">' + user.name + ' has left</div>');
 
     setTimeout(function () {
-        jQuery('.alert').remove();
+        jQuery('.alert-danger').remove();
     }, 2000);
 
     console.log(user);
+}).listen('UserRegisteredEvent', function (_ref) {
+    var name = _ref.name;
+
+    console.log(name);
+    jQuery('.card-body').prepend('<div class="mt-2 alert alert-info">' + name + ' has just registered</div>');
+
+    setTimeout(function () {
+        jQuery('.alert-info').remove();
+    }, 2000);
 });
 
 /***/ }),

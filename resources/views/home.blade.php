@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="user-list">
+                        You are logged in!
+                    </div>
                 </div>
             </div>
         </div>

@@ -63,7 +63,7 @@ function updateUserList()
         list.append(`<li class="list-group-item">${user.name}</li>`);
     });
 
-    jQuery('.card-body').html(list);
+    jQuery('.user-list').html(list);
 }
 
 window.Echo
@@ -85,7 +85,7 @@ window.Echo
     jQuery('.card-body').prepend(`<div class="mt-2 alert alert-primary">${user.name} has joined</div>`);
 
     setTimeout(() => {
-        jQuery('.alert').remove();
+        jQuery('.alert-primary').remove();
     }, 2000);
 
     console.log(user);
@@ -98,7 +98,7 @@ window.Echo
     jQuery('.card-body').prepend(`<div class="mt-2 alert alert-danger">${user.name} has left</div>`);
 
     setTimeout(() => {
-        jQuery('.alert').remove();
+        jQuery('.alert-danger').remove();
     }, 2000);
 
     console.log(user);
