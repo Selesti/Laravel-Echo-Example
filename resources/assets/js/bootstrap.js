@@ -53,8 +53,27 @@ window.Echo = new Echo({
     host: window.location.hostname + ':6001'
 });
 
+window.users = [];
+
+function updateUserList()
+{
+    const list = jQuery('<ul class="list-group"></ul>');
+
+    window.users.forEach(user => {
+        list.append(`<li class="list-group-item">${user.name}</li>`);
+    });
+
+    jQuery('.card-body').html(list);
+}
+
 window.Echo
 .join('everywhere')
 .here(users => {
+    // This runs once the user has joined the channel for only that user.
+
     console.log(users);
-});
+
+    window.users = users;
+
+    updateUserList();
+})
