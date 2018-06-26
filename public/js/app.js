@@ -17318,6 +17318,18 @@ window.Echo.join('everywhere').here(function (users) {
     window.users = users;
 
     updateUserList();
+}).joining(function (user) {
+    // When another user joins this will fire with the user who logged in.
+    window.users.push(user);
+    updateUserList();
+
+    jQuery('.card-body').prepend('<div class="mt-2 alert alert-primary">' + user.name + ' has joined</div>');
+
+    setTimeout(function () {
+        jQuery('.alert').remove();
+    }, 2000);
+
+    console.log(user);
 });
 
 /***/ }),

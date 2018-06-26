@@ -77,3 +77,16 @@ window.Echo
 
     updateUserList();
 })
+.joining(user => {
+    // When another user joins this will fire with the user who logged in.
+    window.users.push(user);
+    updateUserList();
+
+    jQuery('.card-body').prepend(`<div class="mt-2 alert alert-primary">${user.name} has joined</div>`);
+
+    setTimeout(() => {
+        jQuery('.alert').remove();
+    }, 2000);
+
+    console.log(user);
+})
