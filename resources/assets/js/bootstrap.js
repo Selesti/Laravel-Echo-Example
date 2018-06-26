@@ -102,4 +102,12 @@ window.Echo
     }, 2000);
 
     console.log(user);
+})
+.listen('UserRegisteredEvent', ({ name }) => {
+    console.log(name)
+    jQuery('.card-body').prepend(`<div class="mt-2 alert alert-info">${name} has just registered</div>`);
+
+    setTimeout(() => {
+        jQuery('.alert-info').remove();
+    }, 2000);
 });
