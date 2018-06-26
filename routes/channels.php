@@ -11,6 +11,12 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('everywhere', function ($user) {
+   return $user;
+});
+
+Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
+    if ($user->canEnterRoom($roomId)) {
+        return $user;
+    }
 });
