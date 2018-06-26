@@ -90,3 +90,16 @@ window.Echo
 
     console.log(user);
 })
+.leaving(user => {
+    // When the users connection is lost, we get the object of the user who has left.
+    window.users = window.users.filter(u => u.id !== user.id);
+    updateUserList();
+
+    jQuery('.card-body').prepend(`<div class="mt-2 alert alert-danger">${user.name} has left</div>`);
+
+    setTimeout(() => {
+        jQuery('.alert').remove();
+    }, 2000);
+
+    console.log(user);
+});

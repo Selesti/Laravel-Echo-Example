@@ -17330,6 +17330,20 @@ window.Echo.join('everywhere').here(function (users) {
     }, 2000);
 
     console.log(user);
+}).leaving(function (user) {
+    // When the users connection is lost, we get the object of the user who has left.
+    window.users = window.users.filter(function (u) {
+        return u.id !== user.id;
+    });
+    updateUserList();
+
+    jQuery('.card-body').prepend('<div class="mt-2 alert alert-danger">' + user.name + ' has left</div>');
+
+    setTimeout(function () {
+        jQuery('.alert').remove();
+    }, 2000);
+
+    console.log(user);
 });
 
 /***/ }),
