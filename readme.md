@@ -88,7 +88,7 @@ As we wan't to broadcast to everybody who is on the site, we change it to a `Pre
 We then fire the event appropriately, as we made a `UserRegisteredEvent` we will call it inside the `RegisterController.php` by using
 
 ```php
-	event(new UserRegisteredEvent($user));
+event(new UserRegisteredEvent($user));
 ```
 
 Then in our javascipt we `.listen` for the event e.g.
@@ -97,7 +97,7 @@ Then in our javascipt we `.listen` for the event e.g.
 Echo
 .join('everywhere')
 .listen('UserRegisteredEvent', function (data) {
-	console.log(data);
+    console.log(data);
 })
 ```
 
@@ -118,7 +118,7 @@ Echo.private('chat.1')
 .whisper('level-up', {name: 'david', level: 5})
 
 .listenForWhisper('level-up', user => {
-	alert(user.name increased to level user.level);
+    alert(user.name increased to level user.level);
 });
 ```
 
@@ -149,7 +149,7 @@ Broadcast::channel('everywhere', function ($user) {
 });
 
 Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
-	return $user->canAccessRoom($roomId);
+    return $user->canAccessRoom($roomId);
 });
 ```
 
@@ -160,17 +160,3 @@ Obviously you can get much more creative, but these are the main backbone basics
 ```
 git clone git@github.com:Selesti/Laravel-Echo-Example.git
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
